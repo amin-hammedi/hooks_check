@@ -1,19 +1,20 @@
+// MovieList.js
 import React from "react";
-import MovieCard from "./MovieCard";
+import MovieItem from "./MovieItem";
 
-function MovieList({ movies, onEdit, onDelete }) {
+const MovieList = ({ movies, deleteMovie }) => {
   return (
-    <div className="movie-list">
-      {movies.map((movie) => (
-        <MovieCard
-          key={movie.title}
+    <div>
+      {movies.map((movie, index) => (
+        <MovieItem
+          key={index}
           movie={movie}
-          onEdit={onEdit}
-          onDelete={onDelete}
+          index={index}
+          deleteMovie={deleteMovie}
         />
       ))}
     </div>
   );
-}
+};
 
 export default MovieList;
